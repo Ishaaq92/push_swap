@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:58:05 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/03 08:44:57 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/03 15:23:38 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,7 @@ t_linked_list	*parser(int ac, char *av[]);
 
 // Normalisation
 void			init_normalise(t_data *data);
-void			splitting(t_data *data, t_chunk *chunk);
-void			sorting(t_data *data, t_chunk *chunk);
+
 int				find_min(t_data *data, t_chunk *chunk);
 
 // Non_Rec_Sorting
@@ -71,6 +70,10 @@ void			sort_three_b(t_data *data, t_chunk *chunk);
 void			sort_two_a(t_data *data, t_chunk *chunk);
 void			sort_two_b(t_data *data, t_chunk *chunk);
 void			sort_one(t_data *data, t_chunk *chunk);
+
+// Rec_Sorting
+void			splitting_a(t_data *data, t_chunk *chunk);
+void			splitting_b(t_data *data, t_chunk *chunk);
 
 // Utils
 int				ft_atoi(const char *nptr, int *index);
@@ -93,5 +96,7 @@ void			rr(t_data *data);
 void			rra(t_linked_list *stack_a);
 void			rrb(t_linked_list *stack_b);
 void			rrr(t_data *data);
+
+int push(t_linked_list *stack_a, t_linked_list *stack_b, char c);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rec_sorting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:23:56 by ishaaq            #+#    #+#             */
-/*   Updated: 2025/02/03 09:53:18 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/03 16:00:31 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,27 @@ static void	non_rec_routing(t_data *data, t_chunk *chunk)
 		if (chunk->size == 3)
 			sort_three_b(data, chunk);
 		else if (chunk->size == 2)
-			sort_two_a(data, chunk);
+			sort_two_b(data, chunk);
 		else
 			sort_one(data, chunk);
 	}
 }
-static	rec_routing(t_data *data, t_split *split)
+static	void	rec_routing(t_split *split, t_chunk *chunk, int i)
 {
-
-	if (split->max == TOP_A || split->max->loc == BOTTOM_A)
-	{
-
-	}
-
+	split->max.loc = TOP_A;
+	split->min.loc = TOP_B;
+	split->max.size = i;
+	split->min.size = chunk->size - i;
+	ft_printf("max (%d)\n", split->max.size);
+	ft_printf("min (%d)\n", split->min.size);
 }
 
-void	splitting(t_data *data, t_chunk *chunk)
+void	splitting_a(t_data *data, t_chunk *chunk)
 {
-	t_split	split;
-	int		pivot;
-	int		i;
+	t_linked_list	*stack;	
+	t_split			split;
+	int				pivot;
+	int				i;
 	
 	i = 0;
 	if (chunk ->size <= 3)
@@ -62,25 +63,32 @@ void	splitting(t_data *data, t_chunk *chunk)
 		pb(data);
 		i ++;
 	}
-	split.max.size = chunk->size - i;
-	split.max.loc = TOP_A;
-	// split.min.size = i;
-	// split.min.loc = TOP_B;
-	splitting(data, &split.max);
+	rec_routing(&split, chunk, i);
+	splitting_a(data, &split.max);
+	splitting_b(data, &split.min);
 }
 
-void	shift_to_top(t_data *data, t_chunk *chunk, t_linked_list *stack)
+void	splitting_b(t_data *data, t_chunk *chunk)
 {
-	if (chunk -> loc == TOP_A || chunk ->loc == BOTTOM_A)
+	t_linked_list	*stack;	
+	t_split			split;
+	int				pivot;
+	int				i;
+	
+	i = 0;
+	if (chunk ->size <= 3)
+		return (non_rec_routing(data, chunk));
+	pivot = (chunk->size / 2) + find_min(data, chunk);
+	if (pivot == 0)
+		return;
+	while (i < (chunk->size / 2))
 	{
-		if (chunk ->loc == BOTTOM_A)
-		{
-			rra(data -> stack_a);
-			rra(data -> stack_a);
-			rra(data -> stack_a);
-		}
+		while (data->stack_b->top->num <= pivot)
+			rb(data->stack_b);
+		pa(data);
+		i ++;
 	}
-	stack = data -> stack_a;
-	if (chunk -> loc == TOP_B)
-		stack = data -> stack_b;
+	rec_routing(&split, chunk, i);
+	splitting_a(data, &split.max);
+	splitting_b(data, &split.min);
 }

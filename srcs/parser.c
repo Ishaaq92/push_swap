@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:00:37 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/02 18:13:44 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/03 11:58:11 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-
 
 static t_node	*add_node(int value)
 {
@@ -34,7 +32,6 @@ void append_node(t_linked_list *stack, int val)
 	node = add_node(val);
 	if (!node)
 		return;
-
 	if (!(stack->top)) // If the stack is empty
 	{
 		stack->top = node;

@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:56:20 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/02 18:13:43 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/03 14:51:48 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int push(t_data *data)
+int push(t_linked_list *stack_a, t_linked_list *stack_b, char c)
 {
 	t_node *node;
-	t_linked_list	*stack_a = data->stack_a;
-	t_linked_list	*stack_b = data->stack_b;
 	
 	if (!stack_a || !stack_a->top)
 		return (0);
@@ -32,24 +30,26 @@ static int push(t_data *data)
 	else
 		stack_b->bottom = node;
 	stack_b->top = node;
+	if (c == 'A')
+		ft_printf("pb\n");
+	else 
+		ft_printf("pa\n");
 	return (1);
 }
 void pb(t_data *data)
 {
-	if (push(data) == 0)
+	if (push(data->stack_a, data->stack_b, 'B') == 0)
 		return ;
 	data -> stack_a->size--;
 	data -> stack_b->size++;
-	ft_printf("pb\n");
 }
 
 void	pa(t_data *data)
 {
-	if (push(data) == 0)
+	if (push(data->stack_b, data->stack_a, 'B') == 0)
 		return ;
 	data -> stack_a->size++;
 	data -> stack_b->size--;
-	ft_printf("pa\n");
 }
 
 static inline void swap_private(t_linked_list *stack)
