@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:58:05 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/03 15:23:38 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/04 10:32:24 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ void			init_normalise(t_data *data);
 int				find_min(t_data *data, t_chunk *chunk);
 
 // Non_Rec_Sorting
-void			sort_three_a(t_data *data, t_chunk *chunk);
-void			sort_three_b(t_data *data, t_chunk *chunk);
-void			sort_two_a(t_data *data, t_chunk *chunk);
-void			sort_two_b(t_data *data, t_chunk *chunk);
+void			sort_three_a(t_data *data);
+void			sort_three_b(t_data *data);
+void			sort_two_a(t_data *data);
+void			sort_two_b(t_data *data);
 void			sort_one(t_data *data, t_chunk *chunk);
 
 // Rec_Sorting

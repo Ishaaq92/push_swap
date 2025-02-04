@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   normalisation.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:01:55 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/03 15:01:57 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/04 12:18:16 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static void	bubble_sort(int *array, int size)
 	int		temp;
 
 	i = 0;
+
 	while (i < size - 1)
 	{
 		j = 0;
@@ -44,6 +45,8 @@ static void	bubble_sort(int *array, int size)
 		}
 		i++;
 	}
+	i = 0;
+	
 }
 
 static void	normalise(t_linked_list *stack_a, int *array)
@@ -64,7 +67,7 @@ int	find_min(t_data *data, t_chunk *chunk)
 	t_node			*node;
 	int				min;
 
-	if (chunk->loc == TOP_A || BOTTOM_A)
+	if (chunk->loc == TOP_A || chunk->loc == BOTTOM_A)
 		stack = data ->stack_a;
 	else
 		stack = data -> stack_b;
@@ -86,11 +89,11 @@ void    init_normalise(t_data *data)
 	int     *array;
 	t_node  *node;
 
+	i = 0;	
 	size = data->stack_a->size;
 	array = malloc(sizeof(int) * size);
 	if (!array)
 		return ;
-	i = 0;
 	node = data->stack_a->top;
 	while (node)
 	{
