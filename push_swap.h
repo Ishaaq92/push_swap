@@ -6,7 +6,7 @@
 /*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:58:05 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/04 10:32:24 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/05 11:37:26 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_linked_list	*parser(int ac, char *av[]);
 
 // Normalisation
 void			init_normalise(t_data *data);
-
+int				find_max(t_data *data, t_chunk *chunk);
 int				find_min(t_data *data, t_chunk *chunk);
 
 // Non_Rec_Sorting

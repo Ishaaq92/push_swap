@@ -6,7 +6,7 @@
 /*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:01:55 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/04 12:18:16 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/05 11:36:42 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,26 @@ static void	normalise(t_linked_list *stack_a, int *array)
 		node = node->next;
 	}
 }
+int	find_max(t_data *data, t_chunk *chunk)
+{
+	t_linked_list	*stack;
+	t_node			*node;
+	int				max;
 
+	if (chunk->loc == TOP_A || chunk->loc == BOTTOM_A)
+		stack = data ->stack_a;
+	else
+		stack = data -> stack_b;
+	node = stack -> top;
+	max = node->num; 
+	while (node)
+	{
+		if (node->num > max)
+			max = node->num;
+		node = node -> next;
+	}
+	return (max);
+}
 int	find_min(t_data *data, t_chunk *chunk)
 {
 	t_linked_list	*stack;
