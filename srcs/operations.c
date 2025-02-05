@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:56:20 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/03 14:51:48 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/05 14:49:57 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int push(t_linked_list *stack_a, t_linked_list *stack_b, char c)
 		stack_b->bottom = node;
 	stack_b->top = node;
 	if (c == 'A')
-		ft_printf("pb\n");
-	else 
 		ft_printf("pa\n");
+	else 
+		ft_printf("pb\n");
 	return (1);
 }
 void pb(t_data *data)
@@ -46,7 +46,7 @@ void pb(t_data *data)
 
 void	pa(t_data *data)
 {
-	if (push(data->stack_b, data->stack_a, 'B') == 0)
+	if (push(data->stack_b, data->stack_a, 'A') == 0)
 		return ;
 	data -> stack_a->size++;
 	data -> stack_b->size--;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   non_rec_sorting.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:02:08 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/04 14:21:49 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/05 14:39:13 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	sort_three_b(t_data *data)
 	// Pushes to stack A 
 	// Then sorts them.
 	pa(data);
-	ft_printf("HERE!!-\n");
 	pa(data);
 	pa(data);
 	sort_three_a(data);

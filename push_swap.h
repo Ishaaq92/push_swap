@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:58:05 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/05 11:37:26 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/05 14:59:21 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,6 @@ void			rra(t_linked_list *stack_a);
 void			rrb(t_linked_list *stack_b);
 void			rrr(t_data *data);
 
-int push(t_linked_list *stack_a, t_linked_list *stack_b, char c);
+int 			push(t_linked_list *stack_a, t_linked_list *stack_b, char c);
 
 #endif

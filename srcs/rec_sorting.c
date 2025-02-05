@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rec_sorting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:23:56 by ishaaq            #+#    #+#             */
-/*   Updated: 2025/02/05 11:52:01 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/05 17:30:54 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	non_rec_routing(t_data *data, t_chunk *chunk)
+static void	non_rec_routing(t_data *data, t_chunk *chunk, int *flag)
 {
 	if (chunk->loc == TOP_A || chunk->loc == BOTTOM_A)
 	{
@@ -22,6 +22,8 @@ static void	non_rec_routing(t_data *data, t_chunk *chunk)
 			sort_two_a(data);
 		else
 			sort_one(data, chunk);
+		if (chunk->size  <= 3)
+			(*flag) = 1;
 	}
 	else
 	{
@@ -33,7 +35,7 @@ static void	non_rec_routing(t_data *data, t_chunk *chunk)
 			sort_one(data, chunk);
 	}
 }
-static	void	rec_routing(t_split *split, t_chunk *chunk, int i)
+static	void	rec_routing(t_split *split, t_chunk *chunk, int i, int *flag)
 {
 	if (chunk->loc == TOP_A || chunk->loc == BOTTOM_A)
 	{
@@ -48,9 +50,10 @@ static	void	rec_routing(t_split *split, t_chunk *chunk, int i)
 		split->min.loc = TOP_B;
 		split->max.size =  i;
 		split->min.size = chunk->size - i;
+		(*flag) = 1;
 	}	
-	ft_printf("max (%d)\n", split->max.size);
-	ft_printf("min (%d)\n", split->min.size);
+	// ft_printf("max (%d)\n", split->max.size);
+	// ft_printf("min (%d)\n", split->min.size);
 }
 
 void	splitting_a(t_data *data, t_chunk *chunk)
@@ -59,13 +62,13 @@ void	splitting_a(t_data *data, t_chunk *chunk)
 	int				pivot;
 	int				i;
 	int				j;
+	static int		flag = 0;
 
 	j = 0;	
 	i = 0;
 	if (chunk ->size <= 3)
-		return (non_rec_routing(data, chunk));
+		return (non_rec_routing(data, chunk, &flag));
 	pivot = (chunk->size / 2) + find_min(data, chunk);
-	ft_printf("pivot on A: (%d)\n", pivot);
 	while (i < (chunk->size / 2) )
 	{
 		while (data->stack_a->top->num >= pivot)
@@ -76,10 +79,9 @@ void	splitting_a(t_data *data, t_chunk *chunk)
 		pb(data);
 		i ++;
 	}
-	while (j-- > 0)
+	while (j-- > 0 && flag == 1)
 		rra(data->stack_a);
-	rec_routing(&split, chunk, i);
-	print_ll(data);
+	rec_routing(&split, chunk, i, NULL);
 	splitting_a(data, &split.max);
 	splitting_b(data, &split.min);
 }
@@ -90,13 +92,13 @@ void	splitting_b(t_data *data, t_chunk *chunk)
 	int				pivot;
 	int				i;
 	int				j;
+	static int		flag = 0;
 
 	j = 0;	
 	i = 0;
 	if (chunk ->size <= 3)
-		return (non_rec_routing(data, chunk));
+		return (non_rec_routing(data, chunk, NULL));
 	pivot = find_max(data, chunk) - (chunk->size / 2) ;
-	ft_printf("pivot on B: (%d)\n", pivot);
 	while (i < (chunk->size / 2))
 	{
 		while (data->stack_b->top->num <= pivot)
@@ -107,11 +109,9 @@ void	splitting_b(t_data *data, t_chunk *chunk)
 		pa(data);
 		i ++;
 	}
-	while (j-- > 0)
+	while (j-- > 0 && flag == 1)
 		rrb(data->stack_b);
-	rec_routing(&split, chunk, i);
-	print_ll(data);
+	rec_routing(&split, chunk, i, &flag);
 	splitting_a(data, &split.max);
 	splitting_b(data, &split.min);
-	// ft_printf("Would've splitted %d\n", chunk->size);
 }
