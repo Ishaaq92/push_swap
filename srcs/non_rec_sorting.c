@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   non_rec_sorting.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:02:08 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/05 14:39:13 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/06 12:21:21 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,33 @@
 
 void	sort_three_a(t_data *data)
 {
-	int first, second, third;
-	t_linked_list *a = data->stack_a;
+	int	first;
+	int	second;
+	int	third;
 
-	if (a->size < 3)
+	if (data->stack_a->size < 3)
 		return;
-	first = a->top->num;
-	second = a->top->next->num;
-	third = a->top->next->next->num;
-	if (first > second && second > third) // 3 2 1 -> 1 2 3
+	first = data->stack_a->top->num;
+	second = data->stack_a->top->next->num;
+	third = data->stack_a->top->next->next->num;
+	if (first > second)
+		sa(data->stack_a);
+	first = data->stack_a->top->num;
+	second = data->stack_a->top->next->num;
+	if (first > third || second > third)
 	{
-		sa(a);
-		ra(a);
-		sa(a);
-		rra(a);
-		sa(a);	
+		ra(data->stack_a);
+		sa(data->stack_a);
+		rra(data->stack_a);
 	}
-	else if (first > third && third > second) // 3 1 2 -> 1 2 3
-	{
-		sa(a);
-		ra(a);
-		sa(a);
-		rra(a);
-	}
-	else if (second < first && first < third) // 2 1 3 -> 1 2 3
-		sa(a);
-	else if (second > third && third < first) // 2 3 1 -> 1 2 3
-	{
-		ra(a);
-		sa(a);
-		rra(a);
-		sa(a);
-	}
-	else if (third > first && first < second && second > third) // 1 3 2 -> 1 2 3
-	{
-		ra(a);	
-		sa(a);
-		rra(a);
-	}
+	second =  data->stack_a->top->next->num;
+	third = data->stack_a->top->next->next ->num;
+	if (first > second)
+		sa(data->stack_a);
 }
+
 void	sort_three_b(t_data *data)
 {	
-	// Pushes to stack A 
-	// Then sorts them.
 	pa(data);
 	pa(data);
 	pa(data);
@@ -65,13 +49,7 @@ void	sort_three_b(t_data *data)
 
 void	sort_two_a(t_data *data)
 {
-	t_linked_list	*stack;
-	int				first;
-	int				second;	
-
-	first = data->stack_a->top->num;	
-	second = data->stack_a->top->next->num;
-	if (first > second)
+	if (data->stack_a->top->num > data->stack_a->top->next->num && data->stack_a->size >= 2)
 		sa(data->stack_a);
 }
 

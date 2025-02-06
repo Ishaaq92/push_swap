@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:56:26 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/05 17:34:48 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/06 12:16:28 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(int ac, char *av[])
 	data = create_data(ac, av);
 	init_normalise(data);
 
-	// Sorting & Splitting	
+	// Sorting & Splitting
 	start.loc = TOP_A;
 	start.size = data -> stack_a -> size;
 	splitting_a(data, &start);
@@ -43,6 +43,3 @@ int main(int ac, char *av[])
 	print_ll(data);
 	free_ll(data);	
 }
-
-// TO-DO: Accept mutliple command line arguments
-// TO-DO: Create recursive function.

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:56:20 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/05 14:49:57 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/06 12:26:23 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int push(t_linked_list *stack_a, t_linked_list *stack_b, char c)
 		ft_printf("pb\n");
 	return (1);
 }
+
+
 void pb(t_data *data)
 {
 	if (push(data->stack_a, data->stack_b, 'B') == 0)
@@ -112,11 +114,13 @@ void	ra(t_linked_list *stack_a)
 	rotate_private(stack_a);
 	ft_printf("ra\n");
 }
+
 void	rb(t_linked_list *stack_b)
 {
 	rotate_private(stack_b);
 	ft_printf("rb\n");
 }
+
 void	rr(t_data *data)
 {
 	rotate_private(data->stack_a);
@@ -156,6 +160,7 @@ void	rrb(t_linked_list *stack_b)
 	reverse_rotate_private(stack_b);
 	ft_printf("rrb\n");
 }
+
 void	rrr(t_data *data)
 {
 	reverse_rotate_private(data->stack_a);

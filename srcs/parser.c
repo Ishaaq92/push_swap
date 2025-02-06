@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:00:37 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/03 11:58:11 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/06 12:24:42 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void append_node(t_linked_list *stack, int val)
 	node = add_node(val);
 	if (!node)
 		return;
-	if (!(stack->top)) // If the stack is empty
+	if (!(stack->top))
 	{
 		stack->top = node;
 		stack->bottom = node;
@@ -50,12 +50,11 @@ t_linked_list	*parser(int ac, char *av[])
 {
 	int				i;
 	int				j;
-	t_node			*node;
 	t_linked_list	*stack;
 
 	i = 1;
 	stack = malloc(sizeof(t_linked_list));
-	if (!stack)
+	if (!stack || ac < 1)
 		return (NULL);	
 	stack ->top = NULL;
 	stack ->bottom = NULL;
