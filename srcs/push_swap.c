@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:56:26 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/10 11:55:26 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/10 14:42:34 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,15 @@ static t_data	*create_data(int ac, char *av[])
 	return (data);
 }
 
-int main(int ac, char *av[])
+int	main(int ac, char *av[])
 {
 	t_data			*data;
 	t_chunk			start;
 
-	// Setup for sorting
 	data = create_data(ac, av);
 	init_normalise(data);
-
-	// Sorting & Splitting
 	start.loc = TOP_A;
 	start.size = data -> stack_a -> size;
 	splitting_a(data, &start);
-	
-	//Free and other
-	// print_ll(data);
-	free_ll(data);	
+	free_ll(data);
 }

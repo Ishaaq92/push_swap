@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/10 14:04:22 by isahmed           #+#    #+#             */
+/*   Updated: 2025/02/10 14:05:07 by isahmed          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 int	is_empty(char *str)
@@ -51,7 +63,7 @@ void	free_ll(t_data *data)
 	{
 		temp = node -> next;
 		free(node);
-		node = temp; 
+		node = temp;
 	}
 	free (data->stack_b);
 	free(data);
@@ -75,7 +87,7 @@ void	print_ll(t_data *data)
 	stack = data -> stack_b;
 	ft_printf("STACK B\n");
 	if (!stack || !(stack->top))
-		return;
+		return ;
 	top = stack -> top;
 	while (top)
 	{

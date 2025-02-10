@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:00:37 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/06 12:24:42 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/10 14:03:13 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 static t_node	*add_node(int value)
 {
-	t_node *new_node;
+	t_node	*new_node;
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-		return NULL;
+		return (NULL);
 	new_node->num = value;
 	new_node->next = NULL;
 	new_node->previous = NULL;
 	return (new_node);
 }
 
-void append_node(t_linked_list *stack, int val)
+void	append_node(t_linked_list *stack, int val)
 {
-	t_node *node;
-	
+	t_node	*node;
+
 	node = add_node(val);
 	if (!node)
-		return;
+		return ;
 	if (!(stack->top))
 	{
 		stack->top = node;
@@ -55,7 +55,7 @@ t_linked_list	*parser(int ac, char *av[])
 	i = 1;
 	stack = malloc(sizeof(t_linked_list));
 	if (!stack || ac < 1)
-		return (NULL);	
+		return (NULL);
 	stack ->top = NULL;
 	stack ->bottom = NULL;
 	stack ->size = 0;
@@ -64,7 +64,7 @@ t_linked_list	*parser(int ac, char *av[])
 		if (is_empty(av[i]) == -1)
 		{
 			i ++;
-			continue;
+			continue ;
 		}
 		j = 0;
 		while (av[i][j] != '\0')
@@ -73,5 +73,3 @@ t_linked_list	*parser(int ac, char *av[])
 	}
 	return (stack);
 }
-
-

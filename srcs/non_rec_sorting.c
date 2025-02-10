@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   non_rec_sorting.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:02:08 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/06 12:21:21 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/10 13:38:05 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	sort_three_a(t_data *data)
 	int	third;
 
 	if (data->stack_a->size < 3)
-		return;
+		return ;
 	first = data->stack_a->top->num;
 	second = data->stack_a->top->next->num;
 	third = data->stack_a->top->next->next->num;
@@ -33,14 +33,14 @@ void	sort_three_a(t_data *data)
 		sa(data->stack_a);
 		rra(data->stack_a);
 	}
-	second =  data->stack_a->top->next->num;
+	second = data->stack_a->top->next->num;
 	third = data->stack_a->top->next->next ->num;
 	if (first > second)
 		sa(data->stack_a);
 }
 
 void	sort_three_b(t_data *data)
-{	
+{
 	pa(data);
 	pa(data);
 	pa(data);
@@ -49,7 +49,7 @@ void	sort_three_b(t_data *data)
 
 void	sort_two_a(t_data *data)
 {
-	if (data->stack_a->top->num > data->stack_a->top->next->num && data->stack_a->size >= 2)
+	if (data->stack_a->top->num > data->stack_a->top->next->num)
 		sa(data->stack_a);
 }
 

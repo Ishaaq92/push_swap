@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:23:56 by ishaaq            #+#    #+#             */
-/*   Updated: 2025/02/10 12:09:18 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/10 13:42:48 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	non_rec_routing(t_data *data, t_chunk *chunk)
 			sort_one(data, chunk);
 	}
 }
+
 static	void	rec_routing(t_data *data, t_chunk *chunk, int i)
 {
 	t_split			split;
@@ -44,7 +45,7 @@ static	void	rec_routing(t_data *data, t_chunk *chunk, int i)
 	}
 	else
 	{
-		split.max.size =  i;
+		split.max.size = i;
 		split.min.size = chunk->size - i;
 	}
 	split.max.loc = TOP_A;
@@ -59,12 +60,12 @@ void	splitting_a(t_data *data, t_chunk *chunk)
 	int				i;
 	int				j;
 
-	j = 0;	
+	j = 0;
 	i = 0;
 	if (chunk ->size <= 3)
 		return (non_rec_routing(data, chunk));
 	pivot = (chunk->size / 2) + find_min(data, chunk);
-	while (i < (chunk->size / 2) )
+	while (i < (chunk->size / 2))
 	{
 		while (data->stack_a->top->num >= pivot)
 		{
@@ -85,22 +86,22 @@ void	splitting_b(t_data *data, t_chunk *chunk)
 	int				i;
 	int				j;
 
-	j = 0;	
+	j = 0;
 	i = 0;
 	if (chunk ->size <= 3)
 		return (non_rec_routing(data, chunk));
-	pivot = find_max(data, chunk) - (chunk->size / 2) ;
+	pivot = find_max(data, chunk) - (chunk->size / 2);
 	while (i < (chunk->size / 2))
 	{
 		while (data->stack_b->top->num <= pivot)
-		{	
+		{
 			j ++;
 			rb(data->stack_b);
 		}
 		pa(data);
 		i ++;
 	}
-	while (j-- > 0 && (chunk->size -i) != data->stack_b->size)
+	while (j-- > 0 && (chunk->size - i) != data->stack_b->size)
 		rrb(data->stack_b);
 	rec_routing(data, chunk, i);
 }
