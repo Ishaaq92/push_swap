@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:56:26 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/06 12:16:28 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/10 11:55:26 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int main(int ac, char *av[])
 	splitting_a(data, &start);
 	
 	//Free and other
-	print_ll(data);
+	// print_ll(data);
 	free_ll(data);	
 }
