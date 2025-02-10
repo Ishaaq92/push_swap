@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/02/10 14:50:21 by isahmed           #+#    #+#              #
+#    Updated: 2025/02/10 14:52:08 by isahmed          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CFLAGS = -Wall -Wextra -Werror -I. -fsanitize=address -g 
 C = gcc
 ODIR = objs
@@ -33,6 +45,7 @@ clean:
 fclean: clean
 	make -C ft_printf fclean
 	rm -rf $(OBJECTS)/*
+	rm -rf $(BINARY)
 
 re: fclean all
 
