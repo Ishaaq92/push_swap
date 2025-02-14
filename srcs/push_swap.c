@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:56:26 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/10 14:42:34 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/14 13:47:49 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ int	main(int ac, char *av[])
 	start.loc = TOP_A;
 	start.size = data -> stack_a -> size;
 	splitting_a(data, &start);
-	free_ll(data);
+	free_ll(data, 0);
 }

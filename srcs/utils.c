@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:04:22 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/10 14:05:07 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/14 14:08:51 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ int	ft_atoi(const char *nptr, int *index)
 	return (sign * total);
 }
 
-void	free_ll(t_data *data)
+void	free_ll(t_data *data, int error)
 {
 	t_node	*node;
 	t_node	*temp;
 
+	if (error)
+		write(2, "Error\n", 6);	
 	node = data -> stack_a -> top;
 	while (node)
 	{
@@ -67,6 +69,7 @@ void	free_ll(t_data *data)
 	}
 	free (data->stack_b);
 	free(data);
+	exit(1);
 }
 
 void	print_ll(t_data *data)

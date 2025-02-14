@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   normalisation.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:01:55 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/10 13:44:28 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/14 15:10:58 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static void	bubble_sort(int *array, int size)
 		}
 		i++;
 	}
-	i = 0;
 }
 
 static void	normalise(t_linked_list *stack_a, int *array)
@@ -67,7 +66,7 @@ void	init_normalise(t_data *data)
 
 	i = 0;
 	data->full_size = data->stack_a->size;
-	array = malloc(sizeof(int) * data->stack_a->size);
+	array = malloc(sizeof(int) * (data->stack_a->size + 1));
 	if (!array)
 		return ;
 	node = data->stack_a->top;
@@ -76,7 +75,17 @@ void	init_normalise(t_data *data)
 		array[i++] = node->num;
 		node = node->next;
 	}
+	array[data->full_size] = 0;
 	bubble_sort(array, data->stack_a->size);
 	normalise(data->stack_a, array);
+	i = -1;
+	while (array[(++i) + 1] != 0)
+	{
+		if (array[i] == array[i+1])
+		{
+			free(array);
+			free_ll(data, 1);
+		}
+	}
 	free(array);
 }

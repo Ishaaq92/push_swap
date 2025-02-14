@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:58:05 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/10 14:46:11 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/14 13:48:29 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void			splitting_b(t_data *data, t_chunk *chunk);
 
 int				ft_atoi(const char *nptr, int *index);
 void			print_ll(t_data *data);
-void			free_ll(t_data *data);
+void			free_ll(t_data *data, int error);
 int				is_empty(char *str);
 
 void			sa(t_linked_list *stack);
