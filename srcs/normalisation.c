@@ -6,7 +6,7 @@
 /*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:01:55 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/14 15:10:58 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/14 18:41:43 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	init_normalise(t_data *data)
 	int		i;
 
 	i = 0;
-	data->full_size = data->stack_a->size;
 	array = malloc(sizeof(int) * (data->stack_a->size + 1));
 	if (!array)
 		return ;
@@ -75,10 +74,10 @@ void	init_normalise(t_data *data)
 		array[i++] = node->num;
 		node = node->next;
 	}
-	array[data->full_size] = 0;
+	array[i] = 0;
+	i = -1;
 	bubble_sort(array, data->stack_a->size);
 	normalise(data->stack_a, array);
-	i = -1;
 	while (array[(++i) + 1] != 0)
 	{
 		if (array[i] == array[i+1])

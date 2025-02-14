@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:00:37 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/10 14:03:13 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/14 18:32:55 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,30 +46,24 @@ void	append_node(t_linked_list *stack, int val)
 	stack ->size ++;
 }
 
-t_linked_list	*parser(int ac, char *av[])
+void	parser(t_data *data, char *av[])
 {
 	int				i;
 	int				j;
-	t_linked_list	*stack;
 
 	i = 1;
-	stack = malloc(sizeof(t_linked_list));
-	if (!stack || ac < 1)
-		return (NULL);
-	stack ->top = NULL;
-	stack ->bottom = NULL;
-	stack ->size = 0;
 	while (av[i] != 0)
 	{
 		if (is_empty(av[i]) == -1)
 		{
-			i ++;
-			continue ;
+			// ft_printf("empty string error");
+			// exit(1);
+			free_ll(data, 1);	
 		}
 		j = 0;
 		while (av[i][j] != '\0')
-			append_node(stack, ft_atoi(&av[i][j], &j));
+			append_node(data->stack_a, ft_atoi(&av[i][j], &j));
 		i ++;
 	}
-	return (stack);
+	data->full_size = data->stack_a->size;
 }

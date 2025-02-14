@@ -6,7 +6,7 @@
 /*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:58:05 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/14 13:48:29 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/14 15:51:43 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_data
 	int				full_size;
 }	t_data;
 
-t_linked_list	*parser(int ac, char *av[]);
+void			parser(t_data *data, char *av[]);
 
 void			init_normalise(t_data *data);
 int				find_max(t_data *data, t_chunk *chunk);

@@ -6,7 +6,7 @@
 /*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:04:22 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/14 14:08:51 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/14 15:35:10 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ void	free_ll(t_data *data, int error)
 	t_node	*node;
 	t_node	*temp;
 
-	if (error)
-		write(2, "Error\n", 6);	
 	node = data -> stack_a -> top;
 	while (node)
 	{
@@ -69,6 +67,8 @@ void	free_ll(t_data *data, int error)
 	}
 	free (data->stack_b);
 	free(data);
+	if (error == 1)
+		write(2, "Error\n", 6);	
 	exit(1);
 }
 
