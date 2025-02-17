@@ -6,7 +6,7 @@
 /*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:04:22 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/14 15:35:10 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/15 12:05:06 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_atoi(const char *nptr, int *index)
 			sign = sign * -1;
 	while (nptr[i] >= 48 && nptr[i] <= 57)
 		total = (total * 10) + (nptr[i++] - 48);
-	while (nptr[i] == ' ')
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
 		i ++;
 	*index = (*index) + i;
 	return (sign * total);

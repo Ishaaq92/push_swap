@@ -6,7 +6,7 @@
 /*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:00:37 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/14 18:32:55 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/15 12:17:17 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,16 @@ void	parser(t_data *data, char *av[])
 	while (av[i] != 0)
 	{
 		if (is_empty(av[i]) == -1)
-		{
-			// ft_printf("empty string error");
-			// exit(1);
 			free_ll(data, 1);	
-		}
 		j = 0;
+		while (((av[i][j] >= 9 && av[i][j] <= 13) || av[i][j] == ' ') && av[i][j] != '\0')
+			j++;
 		while (av[i][j] != '\0')
+		{
+			if (!(av[i][j] >= '0' && av[i][j] <= '9'))
+				free_ll(data, 1);
 			append_node(data->stack_a, ft_atoi(&av[i][j], &j));
+		}
 		i ++;
 	}
 	data->full_size = data->stack_a->size;
