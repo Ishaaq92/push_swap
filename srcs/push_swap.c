@@ -6,7 +6,7 @@
 /*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:56:26 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/15 12:01:05 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/17 15:29:46 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static t_data	*create_data(int ac, char *av[])
 	data -> stack_b -> top = NULL;
 	data -> stack_b -> bottom = NULL;
 	data -> stack_b -> size = 0;
-
 	data -> stack_a ->top = NULL;
 	data -> stack_a ->bottom = NULL;
 	data -> stack_a ->size = 0;
