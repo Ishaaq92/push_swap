@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:04:22 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/15 12:05:06 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/18 11:14:28 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,33 @@ int	is_empty(char *str)
 	return (-1);
 }
 
-int	ft_atoi(const char *nptr, int *index)
+int	ft_atoi(t_data *data, const char *nptr, int *index)
 {
-	int	i;
-	int	sign;
-	int	total;
+	int		i;
+	int		sign;
+	long	total;
 
 	i = 0;
 	sign = 1;
 	total = 0;
 	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
-		i ++;
+		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 		if (nptr[i++] == '-')
-			sign = sign * -1;
-	while (nptr[i] >= 48 && nptr[i] <= 57)
-		total = (total * 10) + (nptr[i++] - 48);
+			sign = -1;
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		// Check for overflow before updating total
+		if (total * 10 + (nptr[i] - '0') > 2147483647L && sign == 1)
+			free_ll(data, 1);
+		if (total * 10 + (nptr[i] - '0') > 2147483648L && sign == -1)
+			free_ll(data, 1);
+		total = total * 10 + (nptr[i++] - '0');
+	}
 	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
 		i ++;
-	*index = (*index) + i;
-	return (sign * total);
+	*index += i;
+	return ((int)(total * sign));
 }
 
 void	free_ll(t_data *data, int error)

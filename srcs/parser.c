@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:00:37 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/15 12:17:17 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/18 10:44:29 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	parser(t_data *data, char *av[])
 		{
 			if (!(av[i][j] >= '0' && av[i][j] <= '9'))
 				free_ll(data, 1);
-			append_node(data->stack_a, ft_atoi(&av[i][j], &j));
+			append_node(data->stack_a, ft_atoi(data, &av[i][j], &j));
 		}
 		i ++;
 	}

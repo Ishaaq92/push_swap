@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:58:05 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/14 15:51:43 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/18 12:04:17 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ typedef struct s_data
 	int				full_size;
 }	t_data;
 
+
+void    		base_sort(t_data *data);
+
 void			parser(t_data *data, char *av[]);
 
 void			init_normalise(t_data *data);
@@ -72,7 +75,7 @@ void			sort_one(t_data *data, t_chunk *chunk);
 void			splitting_a(t_data *data, t_chunk *chunk);
 void			splitting_b(t_data *data, t_chunk *chunk);
 
-int				ft_atoi(const char *nptr, int *index);
+int				ft_atoi(t_data *data, const char *nptr, int *index);
 void			print_ll(t_data *data);
 void			free_ll(t_data *data, int error);
 int				is_empty(char *str);
