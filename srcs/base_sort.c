@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:26:40 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/18 13:18:54 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/18 13:34:09 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ void    base_sort(t_data *data)
 	if (data->stack_b->size != 0)
 		sort_two_b(data);
 	// print_ll(data);
-	// free_ll(data, 0);
+	free_ll(data, 0);
 	exit(1);
 }
