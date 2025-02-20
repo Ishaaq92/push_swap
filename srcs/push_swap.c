@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:56:26 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/18 12:08:21 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/20 08:21:16 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	main(int ac, char *av[])
 	t_data			*data;
 	t_chunk			start;
 
+	if (ac == 0)
+		exit(1);	
 	data = create_data(ac, av);
 	init_normalise(data);
 	if (data->full_size <= 5)

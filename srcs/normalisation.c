@@ -6,7 +6,7 @@
 /*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:01:55 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/14 18:41:43 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/20 08:33:41 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,21 @@ static void	normalise(t_linked_list *stack_a, int *array)
 	}
 }
 
+static void	check_duplicates(t_data *data, int *array)
+{
+	int	i;
+
+	i = -1;
+	while ((++i) < (data->stack_a->size - 1))
+	{
+		if (array[i] == array[i + 1])
+		{
+			free(array);
+			free_ll(data, 1);
+		}
+	}
+}
+
 void	init_normalise(t_data *data)
 {
 	t_node	*node;
@@ -75,16 +90,8 @@ void	init_normalise(t_data *data)
 		node = node->next;
 	}
 	array[i] = 0;
-	i = -1;
 	bubble_sort(array, data->stack_a->size);
 	normalise(data->stack_a, array);
-	while (array[(++i) + 1] != 0)
-	{
-		if (array[i] == array[i+1])
-		{
-			free(array);
-			free_ll(data, 1);
-		}
-	}
+	check_duplicates(data, array);
 	free(array);
 }
