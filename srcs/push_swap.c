@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:56:26 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/26 15:56:08 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/26 16:45:02 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static t_data	*create_data(int ac, char *av[])
 	data -> stack_a ->bottom = NULL;
 	data -> stack_a ->size = 0;
 	parser(data, av);
+	data->full_size = data->stack_a->size;
 	return (data);
 }
 
@@ -38,7 +39,7 @@ int	main(int ac, char *av[])
 	t_chunk			start;
 
 	if (ac == 1)
-		exit(0);	
+		exit(0);
 	data = create_data(ac, av);
 	init_normalise(data);
 	if (check_order(data) == 0)
@@ -51,6 +52,5 @@ int	main(int ac, char *av[])
 	}
 	else
 		base_sort(data);
-	// print_ll(data);
 	free_ll(data, 0);
 }

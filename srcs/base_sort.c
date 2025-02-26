@@ -6,42 +6,42 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:26:40 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/26 15:56:50 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/26 16:25:33 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void    base_sort_3a(t_linked_list *stack)
+static void	base_sort_3a(t_linked_list *stack)
 {
-	int first;
-	int second;
-	int third;
+	int	first;
+	int	second;
+	int	third;
 
 	if (stack->size != 3)
 		return ;
 	first = stack->top->num;
 	second = stack->top->next->num;
 	third = stack->bottom->num;
-    if (first > second && second < third && first < third) // Case: 2 1 3 -> 1 2 3
-        sa(stack);
-    else if (first > second && second > third) // Case: 3 2 1 -> 1 2 3
-    {
-        sa(stack);
-        rra(stack);
-    }
-    else if (first > third && second < third) // Case: 3 1 2 -> 1 2 3
-        ra(stack);
-    else if (first < second && second > third && first < third) // Case: 1 3 2 -> 1 2 3
-    {
-        sa(stack);
-        ra(stack);
-    }
-    else if (first < second && second > third && first > third) // Case: 2 3 1 -> 1 2 3
-        rra(stack);
+	if (first > second && second < third && first < third)
+		sa(stack);
+	else if (first > second && second > third)
+	{
+		sa(stack);
+		rra(stack);
+	}
+	else if (first > third && second < third)
+		ra(stack);
+	else if (first < second && second > third && first < third)
+	{
+		sa(stack);
+		ra(stack);
+	}
+	else if (first < second && second > third && first > third)
+		rra(stack);
 }
 
-void    base_sort(t_data *data)
+void	base_sort(t_data *data)
 {
 	int	i;
 

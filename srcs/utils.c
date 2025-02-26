@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:04:22 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/26 13:44:39 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/26 16:27:50 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	free_ll(t_data *data, int error)
 	free(data);
 	if (error == 0)
 		exit(0);
-	write(2, "Error\n", 6);	
+	write(2, "Error\n", 6);
 	exit(1);
 }
 

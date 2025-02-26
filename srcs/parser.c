@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:00:37 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/26 15:53:08 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/26 16:45:41 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,31 +46,42 @@ void	append_node(t_linked_list *stack, int val)
 	stack ->size ++;
 }
 
+void	skip_white_space(char *av[], int i, int *index)
+{
+	int	j;
+
+	j = (*index);
+	while (((av[i][j] >= 9 && av[i][j] <= 13) ||
+	av[i][j] == ' ') && av[i][j] != '\0')
+		j++;
+	(*index) = j;
+}
+
 void	parser(t_data *data, char *av[])
 {
 	int				i;
 	int				j;
 
 	i = 1;
+	j = 0;
+	skip_white_space(av, i, &j);
 	while (av[i] != 0)
 	{
 		if (is_empty(av[i]) == -1)
-			free_ll(data, 1);	
+			free_ll(data, 1);
 		j = 0;
-		while (((av[i][j] >= 9 && av[i][j] <= 13) || av[i][j] == ' ') && av[i][j] != '\0')
-			j++;
 		while (av[i][j] != '\0')
 		{
 			if (!(av[i][j] >= '0' && av[i][j] <= '9'))
-				if ((av[i][j] != '+' && av[i][j] != '-') || !(av[i][j + 1] >= '0' && av[i][j + 1] <= '9'))
+				if ((av[i][j] != '+' && av[i][j] != '-') ||
+				!(av[i][j + 1] >= '0' && av[i][j + 1] <= '9'))
 					free_ll(data, 1);
 			append_node(data->stack_a, ft_atoi(data, &av[i][j], &j));
-			if (!(av[i][j] >= 9 && av[i][j] <= 13) && (av[i][j] != ' ') && av[i][j] != '\0')
+			if (!(av[i][j] >= 9 && av[i][j] <= 13) &&
+			(av[i][j] != ' ') && av[i][j] != '\0')
 				free_ll(data, 1);
-			while (((av[i][j] >= 9 && av[i][j] <= 13) || av[i][j] == ' ') && av[i][j] != '\0')
-				j++;
+			skip_white_space(av, i, &j);
 		}
 		i ++;
 	}
-	data->full_size = data->stack_a->size;
 }
