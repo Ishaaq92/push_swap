@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:02:08 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/10 13:38:05 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/26 10:41:38 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,5 @@ void	sort_one(t_data *data, t_chunk *chunk)
 		pa(data);
 	}
 	else if (chunk ->loc == BOTTOM_A)
-		rra(data ->stack_a);
+		rra(data -> stack_a);
 }

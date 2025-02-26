@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:26:40 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/18 13:34:09 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/26 12:05:53 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,26 @@ static void    base_sort_3a(t_linked_list *stack)
         rra(stack);
 }
 
+int	check_order(t_data *data)
+{
+	t_node	*node;
+
+	node = data->stack_a->top;
+	while (node ->next)
+	{
+		if (node->next->num < node->num)
+			return (1);	
+		node = node->next;
+	}
+	return (0);
+}
+
 void    base_sort(t_data *data)
 {
-	int				i;
+	int	i;
 
+	if (check_order(data) == 0)
+		return ;
 	if ((data->full_size == 4) || (data->full_size == 5))
 	{
 		i = 0;
@@ -62,7 +78,4 @@ void    base_sort(t_data *data)
 		sort_two_a(data);
 	if (data->stack_b->size != 0)
 		sort_two_b(data);
-	// print_ll(data);
-	free_ll(data, 0);
-	exit(1);
 }

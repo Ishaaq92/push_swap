@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   normalisation.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:01:55 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/20 08:33:41 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/26 11:29:13 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	init_normalise(t_data *data)
 		node = node->next;
 	}
 	array[i] = 0;
+	node = data->stack_a->top;
 	bubble_sort(array, data->stack_a->size);
 	normalise(data->stack_a, array);
 	check_duplicates(data, array);

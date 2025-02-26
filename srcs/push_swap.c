@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:56:26 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/20 08:21:16 by ishaaq           ###   ########.fr       */
+/*   Updated: 2025/02/26 13:31:10 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,18 @@ int	main(int ac, char *av[])
 	t_data			*data;
 	t_chunk			start;
 
-	if (ac == 0)
-		exit(1);	
+	if (ac == 1)
+		exit(0);	
 	data = create_data(ac, av);
 	init_normalise(data);
-	if (data->full_size <= 5)
+	if (data->full_size > 5)
+	{
+		start.loc = TOP_A;
+		start.size = data -> stack_a -> size;
+		splitting_a(data, &start);
+	}
+	else
 		base_sort(data);
-	start.loc = TOP_A;
-	start.size = data -> stack_a -> size;
-	splitting_a(data, &start);
-	print_ll(data);
+	// print_ll(data);
 	free_ll(data, 0);
 }

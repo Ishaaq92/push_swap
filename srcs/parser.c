@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:00:37 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/18 10:44:29 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/26 13:18:50 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,11 @@ void	parser(t_data *data, char *av[])
 		while (av[i][j] != '\0')
 		{
 			if (!(av[i][j] >= '0' && av[i][j] <= '9'))
-				free_ll(data, 1);
+				if ((av[i][j] != '+' && av[i][j] != '-') || !(av[i][j + 1] >= '0' && av[i][j + 1] <= '9'))
+					free_ll(data, 1);
 			append_node(data->stack_a, ft_atoi(data, &av[i][j], &j));
+			while (((av[i][j] >= 9 && av[i][j] <= 13) || av[i][j] == ' ') && av[i][j] != '\0')
+				j++;
 		}
 		i ++;
 	}

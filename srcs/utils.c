@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:04:22 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/18 11:14:28 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/26 13:44:39 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,12 @@ int	ft_atoi(t_data *data, const char *nptr, int *index)
 			sign = -1;
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		// Check for overflow before updating total
 		if (total * 10 + (nptr[i] - '0') > 2147483647L && sign == 1)
 			free_ll(data, 1);
 		if (total * 10 + (nptr[i] - '0') > 2147483648L && sign == -1)
 			free_ll(data, 1);
 		total = total * 10 + (nptr[i++] - '0');
 	}
-	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
-		i ++;
 	*index += i;
 	return ((int)(total * sign));
 }
@@ -74,8 +71,9 @@ void	free_ll(t_data *data, int error)
 	}
 	free (data->stack_b);
 	free(data);
-	if (error == 1)
-		write(2, "Error\n", 6);	
+	if (error == 0)
+		exit(0);
+	write(2, "Error\n", 6);	
 	exit(1);
 }
 
