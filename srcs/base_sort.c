@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:26:40 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/26 12:05:53 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/02/26 15:56:50 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,6 @@ static void    base_sort_3a(t_linked_list *stack)
     }
     else if (first < second && second > third && first > third) // Case: 2 3 1 -> 1 2 3
         rra(stack);
-}
-
-int	check_order(t_data *data)
-{
-	t_node	*node;
-
-	node = data->stack_a->top;
-	while (node ->next)
-	{
-		if (node->next->num < node->num)
-			return (1);	
-		node = node->next;
-	}
-	return (0);
 }
 
 void    base_sort(t_data *data)
