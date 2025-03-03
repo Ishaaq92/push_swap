@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:56:26 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/26 16:45:02 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/03/03 16:08:57 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int ac, char *av[])
 	data = create_data(ac, av);
 	init_normalise(data);
 	if (check_order(data) == 0)
-		return (0);
+		free_ll(data, 0);
 	if (data->full_size > 5)
 	{
 		start.loc = TOP_A;
