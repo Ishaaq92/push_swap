@@ -6,11 +6,11 @@
 #    By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/10 14:50:21 by isahmed           #+#    #+#              #
-#    Updated: 2025/02/26 13:21:02 by isahmed          ###   ########.fr        #
+#    Updated: 2025/03/06 15:19:03 by isahmed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Wextra  -I. -g 
+CFLAGS = -Wall -Wextra -Werror -I. -g 
 CC = gcc
 ODIR = objs
 SDIR = srcs

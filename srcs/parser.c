@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:00:37 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/26 16:45:41 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/03/06 15:22:38 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	parser(t_data *data, char *av[])
 		j = 0;
 		while (av[i][j] != '\0')
 		{
+			skip_white_space(av, i, &j);
 			if (!(av[i][j] >= '0' && av[i][j] <= '9'))
 				if ((av[i][j] != '+' && av[i][j] != '-') ||
 				!(av[i][j + 1] >= '0' && av[i][j + 1] <= '9'))

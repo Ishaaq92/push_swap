@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:56:20 by isahmed           #+#    #+#             */
-/*   Updated: 2025/02/10 13:56:24 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/03/06 15:20:28 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static inline void	swap_private(t_linked_list *stack)
 	second->next = first;
 	first->previous = second;
 	stack -> top = second;
+	if (stack->size == 2)
+		stack->bottom = first;
 }
 
 void	sa(t_linked_list *stack)
