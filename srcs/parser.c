@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:00:37 by isahmed           #+#    #+#             */
-/*   Updated: 2025/03/06 15:22:38 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/03/11 10:29:52 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ void	parser(t_data *data, char *av[])
 	int				i;
 	int				j;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	skip_white_space(av, i, &j);
-	while (av[i] != 0)
+	while (av[++i] != 0)
 	{
 		if (is_empty(av[i]) == -1)
 			free_ll(data, 1);
@@ -83,6 +83,5 @@ void	parser(t_data *data, char *av[])
 				free_ll(data, 1);
 			skip_white_space(av, i, &j);
 		}
-		i ++;
 	}
 }
